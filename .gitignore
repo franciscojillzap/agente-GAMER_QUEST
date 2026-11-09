@@ -1,12 +1,5 @@
-# Arquivo de variáveis de ambiente com a chave de API
 .env
-
-# Banco de dados local SQLite
-data/
-*.db
-
-# Pastas de ambiente virtual e cache do Python
 .venv/
-venv/
 __pycache__/
-*.pyc
+*.py[cod]
+data/
