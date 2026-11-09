@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import os
 from agno.agent import Agent
 from agno.db.sqlite import SqliteDb
 from agno.fs import FileSystem
@@ -9,6 +10,11 @@ from dotenv import load_dotenv
 
 # Carrega OPENROUTER_API_KEY do arquivo .env para o ambiente do processo.
 load_dotenv()
+
+if not os.getenv("OPENROUTER_API_KEY"):
+    raise RuntimeError(
+        "OPENROUTER_API_KEY is missing. Copy .env.example to .env and add your key."
+    )
 
 # Prepara uma pasta local para o arquivo SQLite.
 Path("data").mkdir(exist_ok=True)
